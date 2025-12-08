@@ -38,6 +38,8 @@ criticalhit(){
 		crit=2
 		utok2=$(($utok*$crit))
 
+	else
+		utok
 	fi
 }
 
@@ -55,7 +57,7 @@ echo "==========================================================================
 
 echo "Rytir -> HP=150, DMG=70, DFS=60, INT=20"
 sleep 1
-echo "Lucesnik -> HP=100, DMG=85, DFS=30, INT=60"
+echo "Lucistnik -> HP=100, DMG=85, DFS=30, INT=60"
 sleep 1
 echo "Mag -> HP=110, DMG=50, DFS=50, INT=80"
 echo "==================================================================================================================================="
@@ -70,7 +72,7 @@ Rytir)
 	DFS=60
 	INT=20
 	;;
-Lucesnik)
+Lucistnik)
 	HP=100
 	DMG=85
 	DFS=30
@@ -113,19 +115,19 @@ clear
 if [ $postava != "Krtek" ]; then
 	echo "Rozhodni se pro akci: "
 	echo "==================================================================================================================================="
-	echo "1) Utect"
-	echo "2) Bojovat"
+	echo "1) Bojovat"
+	echo "2) Utect"
 	echo "3) Skryt se za stromem"
 	echo "==================================================================================================================================="
 	read akce
-	if [ $akce = "2" ]; then
+	if [ $akce = "1" ]; then
 		clear
 	else
 		echo "Pokusis se, ale tva snaha byla marna, musis bojovat"
 	fi
 
 fi
-echo "Rozhodnes se ze musis jit bojovat..."
+echo "jdes do boje..."
 sleep 3
 
 echo "[...]: Vidim ze se nam tu nekdo probudil, pripraven na dalsi krok k tvemu hrobu?"
@@ -154,15 +156,24 @@ echo "Vyber akci: "
 echo "==================================================================================================================================="
 
 echo "1) utok"
-echo "2) obrana"
+echo "2) obrana -> Zvysi tve stats pro crit utok v dalsim tahu"
 echo "3) Zjistit proc chce bojovat"
 echo "==================================================================================================================================="
 
 read akce
 
 if [ $akce = "1" ]; then
-	utok
-	echo "Alubmabovi zbyva "$HPn"HP"
+	criticalhit
+	if [ $HPn -le 0 ]; then
+		echo "[Alubmab]: Jeje toto boli auvajs, prosim zrychli, strasne me to boli"
+		echo "[$jmeno]: Dostals co si zaslouzis ty spindiro"
+		sleep 2
+                echo "(Alubmab zemrel)"
+	else
+		echo "[Alubmab]: Ajo, to je vsechno co mas?!"
+		echo "(ted utoci nepritel)"
+		echo "Alubmabovi zbyva "$HPn"HP"
+	fi
 else
 	echo " "
 fi
