@@ -170,6 +170,7 @@ while true; do
 			echo "[$jmeno]: Dostals co si zaslouzis ty spindiro"
 			sleep 2
         	echo "(Alubmab zemrel)"
+			echo "(jsi sigma)"
 			break
 		else
 			echo "[Alubmab]: Ajo, to je vsechno co mas?!"
