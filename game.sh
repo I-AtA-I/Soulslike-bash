@@ -187,6 +187,7 @@ while true; do
 	else
 		echo " "
 	fi
+done
 
 echo "To je velmi sigma"
 read ajooo
