@@ -152,28 +152,41 @@ DMGn=50
 DFSn=30
 INTn=30
 
-echo "Vyber akci: "
-echo "==================================================================================================================================="
+while true; do
+	echo "Vyber akci: "
+	echo "==================================================================================================================================="
 
-echo "1) utok"
-echo "2) obrana -> Zvysi tve stats pro crit utok v dalsim tahu"
-echo "3) Zjistit proc chce bojovat"
-echo "==================================================================================================================================="
+	echo "1) utok"
+	echo "2) obrana -> Zvysi tve stats pro crit utok v dalsim tahu"
+	echo "3) Zjistit proc chce bojovat"
+	echo "==================================================================================================================================="
 
-read akce
+	read akce
 
-if [ $akce = "1" ]; then
-	criticalhit
-	if [ $HPn -le 0 ]; then
-		echo "[Alubmab]: Jeje toto boli auvajs, prosim zrychli, strasne me to boli"
-		echo "[$jmeno]: Dostals co si zaslouzis ty spindiro"
-		sleep 2
-                echo "(Alubmab zemrel)"
+	if [ $akce = "1" ]; then
+		criticalhit
+		if [ $HPn -le 0 ]; then
+			echo "[Alubmab]: Jeje toto boli auvajs, prosim zrychli, strasne me to boli"
+			echo "[$jmeno]: Dostals co si zaslouzis ty spindiro"
+			sleep 2
+        	echo "(Alubmab zemrel)"
+			break
+		else
+			echo "[Alubmab]: Ajo, to je vsechno co mas?!"
+			echo "Alubmabovi zbyva "$HPn"HP"
+			echo "(ted utoci nepritel)"
+			echo "[Alubmab]: Ty mrdkii, dostanez!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+			HP=$(($HP-$DMGn))
+			if [ $HP -ge 1 ]; then
+				echo "Zbyva ti $HP HP"
+			else
+				echo "GG WP, umrel si. priste neumirej"
+			fi
+
+		fi
 	else
-		echo "[Alubmab]: Ajo, to je vsechno co mas?!"
-		echo "(ted utoci nepritel)"
-		echo "Alubmabovi zbyva "$HPn"HP"
+		echo " "
 	fi
-else
-	echo " "
-fi
+
+echo "To je velmi sigma"
+read ajooo
