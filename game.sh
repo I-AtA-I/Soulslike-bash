@@ -171,11 +171,17 @@ while true; do
 			sleep 2
         	echo "(Alubmab zemrel)"
 			break
+			sleep 2
+			clear
 		else
 			echo "[Alubmab]: Ajo, to je vsechno co mas?!"
+			sleep 2
 			echo "Alubmabovi zbyva "$HPn"HP"
+			sleep 1
 			echo "(ted utoci nepritel)"
 			echo "[Alubmab]: Ty mrdkii, dostanez!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+			sleep 1
+			clear
 			HP=$(($HP-$DMGn))
 			if [ $HP -ge 1 ]; then
 				echo "Zbyva ti $HP HP"
@@ -187,6 +193,8 @@ while true; do
 		fi
 	else
 		echo "Proste utoc kamo, nema to cenu..."
+		sleep 2
+		clear
 	fi
 done
 
